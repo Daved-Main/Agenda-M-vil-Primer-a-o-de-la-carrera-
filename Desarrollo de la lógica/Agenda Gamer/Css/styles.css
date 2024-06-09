@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Minecraft;
+}
+
+.animated_bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	pointer-events: none;
+}
+.round {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 10%;
+	background-color: #32ff5f;
+	border: 5px solid #32ff5f;
+	opacity: 0;
+	box-shadow: 0 0 100px #32ff5f, 0 0 10px #32ff5f, 0 0 20px #32ff5f;
+	animation: animate 4s linear infinite, ani-2 2s linear infinite;
+}
+.round:nth-child(1) {
+	left: 5%;
+	animation-delay: 0.5s;
+}
+.round:nth-child(2) {
+	left: 65%;
+	animation-delay: 1s;
+}
+.round:nth-child(3) {
+	left: 90%;
+	animation-delay: 1.5s;
+}
+.round:nth-child(4) {
+	left: 18%;
+	animation-delay: 2s;
+}
+.round:nth-child(5) {
+	left: 93%;
+	animation-delay: 2.5s;
+}
+.round:nth-child(6) {
+	left: 52%;
+	animation-delay: 3s;
+}
+.round:nth-child(7) {
+	left: 65%;
+	animation-delay: 3.5s;
+}
+.round:nth-child(8) {
+	left: 35%;
+	animation-delay: 4s;
+}
+.round:nth-child(9) {
+	left: 85%;
+	animation-delay: 4.5s;
+}
+.round:nth-child(10) {
+	left: 45%;
+	animation-delay: 5s;
+}
+.round:nth-child(11) {
+	left: 36%;
+	animation-delay: 5.5s;
+}
+.round:nth-child(12) {
+	left: 72%;
+	animation-delay: 6s;
+}
+.round:nth-child(13) {
+	left: 14%;
+	animation-delay: 6.5s;
+}
+.round:nth-child(14) {
+	left: 70%;
+	animation-delay: 7s;
+}
+@keyframes animate {
+	0% {
+		top: 0;
+		opacity: 1;
+	}
+	20% {
+		top: 20%;
+		opacity: 0.8;
+	}
+	40% {
+		top: 40%;
+		opacity: 0.6;
+	}
+	60% {
+		top: 60%;
+		opacity: 0.4;
+	}
+	80% {
+		top: 80%;
+		opacity: 0.2;
+	}
+	100% {
+		top: 100%;
+		opacity: 0;
+	}
+}
+@keyframes ani-2 {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(2.5);
+	}
+}
+
+@font-face{
+    font-family: 'Minecraft';
+    src: url(Minecraft.ttf);
+}
+
+body {
+  margin: 0;
+	background-color:  #234;;;
+  color: white;
+}
+
+.form{
+    margin: 40px auto;
+    padding: 3rem;
+    background-image: url(Minecraft.jfif);
+    background-size: cover;
+    width: min(450px, 90%);
+    border-radius: 10px;
+}
+
+.form_title{
+    color: rgb(255, 255, 255);
+    font-size: 2.2rem;
+}
+
+.sub_title{
+    color: rgb(255, 255, 255);
+    margin-top: 1.7rem;
+    font-size: 2rem;
+}
+
+.form__inputs{
+    margin: 2rem 0 1.5rem;
+    display: grid;
+    gap: 2rem;
+    color: #000000;
+}
+
+
+.form__label{
+    width: 100%;
+    display: grid;
+    grid-template-areas: "input";
+}
+
+.form__input{
+    grid-area: input;
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid #d7d0d0;
+    padding: .7rem 1.5rem;
+    color: #000000;
+}
+
+.form__text{
+    grid-area: input;
+    z-index: 100;
+
+    width: max-content;
+    height: 100%;
+
+    margin-left: 1rem;
+    padding-inline-start: 0 .5rem;
+    display: flex;
+    align-items: center;
+
+    transform-origin: left center;
+    transition: transform .5s;
+}
+
+    .form__input:focus + .form__text,
+    .form__input:not(:placeholder-shown) + .form__text{
+    transform: translateY(-75%) scale(1);
+    color: #FFDB58;
+    }
+
+button {
+    font-size: 12px;
+    background-color: #008542;
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 0;
+    z-index: 1;
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: unset;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 900;
+    transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+    margin-right: 25px;
+}
+
+button:before {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+    z-index: -1;
+    background-color: #008542 !important;
+    box-shadow: 0 -4px rgb(21 108 0 / 50%) inset,
+        0 4px rgb(100 253 31 / 99%) inset, -4px 0 rgb(100 253 31 / 50%) inset,
+        4px 0 rgb(21 108 0 / 50%) inset;
+}
+
+button:after {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+    transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+}
+
+button:hover:before {
+    box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset,
+        -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+button:hover:after {
+    box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+button:active:after {
+    box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+}
+
+:root {
+    --body-bg: #123;
+    --nav-bg: #234;
+}
+
+
+nav {
+    background: var(--nav-bg);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-block: 2rem;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    gap: 1rem;
+}
+
+.nav-list a {
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+.nav-list li {
+    font-size: 1.25rem;
+    padding-block: 1rem;
+    padding-inline: 2rem;
+    margin-inline: 1rem 0;
+    box-shadow: 2px 0 0 var(--body-bg);
+}
+
+
+.nav-list li:nth-child(1) a {
+    view-transition-name: test;
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos Agendados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Css/agenda.css">
+    <link rel="stylesheet" href="Css/styles.css">
+    <link rel="stylesheet" href="Css/navbar.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-container {
+            width: 80%;
+            height: 100%;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: auto; /* Permite el desplazamiento dentro del contenedor principal */
+        }
+
+        #lista-container {
+            margin: 0;
+            padding: 12px;
+            background-color: rgb(90, 90, 90);
+            height: calc(100% - 50px); /* Ajusta esta altura según tus necesidades */
+            overflow-y: auto; /* Permite el desplazamiento vertical */
+        }
+
+
+        #lista-datos {
+            padding: 0;
+            list-style: none;
+            width: 100%;
+            margin-top: 15px;
+            gap: 12px;
+            display: flex;
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        #lista-datos li {
+            color: white;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            column-count: 1;
+            flex-direction: column;
+            font-size: 14px;
+        }
+
+        #lista-datos .text {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        #lista-datos button {
+            margin-top: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #lista-datos button:hover {
+            opacity: 0.8;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-image: url(https://i.pinimg.com/736x/a0/ce/81/a0ce81f10591b00d6dff44ac87be5aec.jpg);
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            width: 80%;
+            height: 400px;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #contacto-info p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/e/e7/Steve_%28Minecraft%29.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: solid wheat 1px;
+        }
+
+.animated_bg{
+    height: 90%;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="animated_bg">
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+        <div class="round"></div>
+    </div>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button class="toggle-btn" type="button">
+                    <i class="lni lni-grid-alt"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="#">Menu</a>
+                </div>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="Agenda.html" class="sidebar-link">
+                        <i class="lni lni-user"></i>
+                        <span>Nuevo Contacto</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="lni lni-layout"></i>
+                        <span>Lista de contactos</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="Politicas de Privacidad.html" class="sidebar-link">
+                        <i class="lni lni-protection "></i>
+                        <span>Politicas de Privacidad</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <div class="container">
+            <div class="main-container">
+                <div id="lista-container" class="lista-datos">
+                    <h1>LISTA DE CONTACTOS</h1>
+                    <hr>
+                    <ul id="lista-datos"></ul>
+                </div>
+            </div>
+        
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="profile-pic"></div>
+                    <div class="contact-info">
+                        <h2>Contacto Agendado</h2>
+                        <div id="contacto-info"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="contacto.js"></script>
+    <script>
+        const Menu = document.querySelector(".toggle-btn");
+
+        Menu.addEventListener("click", function () {
+            document.querySelector("#sidebar").classList.toggle("expand");
+        });
+    </script>
+</body>
+
+</html>
